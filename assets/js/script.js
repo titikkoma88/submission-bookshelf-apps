@@ -23,6 +23,7 @@ function addBook() {
     const bookObject = generateBookObject(generatedID, textTitle, textAuthor, numberYear, datePurchasing, timestamp, false);
     books.push(bookObject);
    
+    clearForm();
     document.dispatchEvent(new Event(RENDER_EVENT));
 }
 
@@ -95,19 +96,19 @@ function makeListBook(bookObject) {
         const editButton = document.createElement("button");
         editButton.classList.add("edit-button");
         editButton.addEventListener("click", function () {
-            removeTaskFromCompleted(bookObject.id);
+            editBook(bookObject.id);
         });
 
         const undoButton = document.createElement("button");
         undoButton.classList.add("undo-button");
         undoButton.addEventListener("click", function () {
-            undoTaskFromCompleted(bookObject.id);
+            undoBookFromCompleted(bookObject.id);
         });
    
         const trashButton = document.createElement("button");
         trashButton.classList.add("trash-button");
         trashButton.addEventListener("click", function () {
-            removeTaskFromCompleted(bookObject.id);
+            removeBook(bookObject.id);
         });
    
         actionContainer.append(trashButton, editButton, undoButton );
@@ -117,7 +118,7 @@ function makeListBook(bookObject) {
         const editButton = document.createElement("button");
         editButton.classList.add("edit-button");
         editButton.addEventListener("click", function () {
-            removeTaskFromCompleted(bookObject.id);
+            removeBook(bookObject.id);
         });
 
         const checkButton = document.createElement("button");
@@ -125,8 +126,14 @@ function makeListBook(bookObject) {
         checkButton.addEventListener("click", function () {
             addBookCompleted(bookObject.id);
         });
+
+        const trashButton = document.createElement("button");
+        trashButton.classList.add("trash-button");
+        trashButton.addEventListener("click", function () {
+            removeBook(bookObject.id);
+        });
    
-        actionContainer.append(editButton, checkButton);
+        actionContainer.append(trashButton, editButton, checkButton);
     }
 
     return container;
@@ -141,6 +148,30 @@ function makeListBook(bookObject) {
     document.dispatchEvent(new Event(RENDER_EVENT));
 }
 
+function removeBook(bookId) {
+    const bookTarget = findBookIndex(bookId);
+    if(bookTarget === -1) return;
+    books.splice(bookTarget, 1);
+   
+    document.dispatchEvent(new Event(RENDER_EVENT));
+}
+   
+function undoBookFromCompleted(bookId){
+    const bookTarget = findBook(bookId);
+    if(bookTarget == null) return;
+   
+    bookTarget.isCompleted = false;
+    document.dispatchEvent(new Event(RENDER_EVENT));
+}
+
+function clearForm() {
+    document.getElementById("inputBookTitle").value = "";
+    document.getElementById("inputBookAuthor").value = "";
+    document.getElementById("inputBookYear").value = "";
+    document.getElementById("inputBookPurchasing").value = "";
+    document.getElementById("inputBookIsComplete").checked = false;
+}
+
 function findBook(bookId){
     for(bookItem of books){
         if(bookItem.id === bookId){
@@ -148,6 +179,15 @@ function findBook(bookId){
         }
     }
     return null
+}
+
+function findBookIndex(bookId) {
+    for(index in books){
+        if(books[index].id === bookId){
+            return index
+        }
+    }
+    return -1
 }
 
 document.addEventListener(RENDER_EVENT, function () {
