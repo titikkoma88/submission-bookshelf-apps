@@ -5,18 +5,32 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Bookshelf Apps</title>
+    <title>Bookshelf Apps | Panji Hadjarati</title>
+    <link rel="icon" href="assets/img/logo-icon.png" type="image/x-icon">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
 <header class="head_bar">
-    <h1 class="head_bar__title">Bookshelf Apps</h1>
+    <div class="banner">
+        <h1>Bookshelf Apps</h1>
+        <h3> 
+            Aplikasi ini memiliki fitur menambahkan, mengedit, dan menghapus data Buku, 
+            <br>juga memindahkan, mencari serta menyimpannya pada lokal storage. 
+            <br>dibuat oleh <a href="https://panjihadjarati.com/" style="color: #6495ed">Panji Ramadhan Hadjarati</a>. 
+            <br>Selamat membaca.
+        </h3>
+    </div>
+    <nav class="navbar">
+        <div class="logo">      
+                <h4>Bookshelf Apps</h4>
+        </div>
+    </nav>
 </header>
 <main>
     <section class="input_section">
-        <h2>Masukkan Buku Baru</h2>
+        <h2>Masukkan Data Buku</h2>
         <form id="inputBook">
             <div class="input">
                 <label for="inputBookTitle">Judul</label>
@@ -34,19 +48,20 @@
                 <label for="inputBookPurchasing">Tanggal Pembelian</label>
                 <input id="inputBookPurchasing" type="date" required>
             </div>
-            <div class="input_inline">
+            <div class="input_inline" id="checkBook">
                 <label for="inputBookIsComplete">Selesai dibaca</label>
                 <input id="inputBookIsComplete" type="checkbox">
             </div>
             <button id="bookSubmit" type="submit">Masukkan Buku ke rak <span>Belum dibaca</span></button>
+            <button id="bookEdit" style="display: none;"><span>Edit Buku</span></button>
         </form>
     </section>
 
     <section class="search_section">
         <h2>Cari Buku (Opsional)</h2>
         <form id="searchBook">
-            <label for="searchBookTitle">Judul</label>
-            <input id="searchBookTitle" type="text">
+            <label for="searchBookTitle">Keyword</label>
+            <input id="searchBookTitle" type="text" placeholder="Ketikan disini">
             <button id="searchSubmit" type="submit">Cari</button>
         </form>
     </section>
@@ -65,6 +80,29 @@
         </div>
     </section>
 </main>
+<footer>
+    <p>Belajar Membuat Front-End Web untuk Pemula &#169; 2022,<a href="https://www.dicoding.com/" target="_blank" style="color: #6495ed"> Dicoding Academy</a>.
+        <br>
+        <a href="https://www.linkedin.com/in/panji-ramadhan-hadjarati-48094a179/" target="_blank">
+            <img src="assets/img/ic_linkedin.png" class="sosmed">
+        </a>
+        <a href="https://www.facebook.com/jiepiranha" target="_blank">
+            <img src="assets/img/ic_facebook.png" class="sosmed">
+        </a>
+        <a href="https://github.com/titikkoma88" target="_blank">
+            <img src="assets/img/ic_github.png" class="sosmed">
+        </a>
+        <a href="https://www.instagram.com/jiepiranha/" target="_blank">
+            <img src="assets/img/ic_instagram.png" class="sosmed">
+        </a>
+        <a href="https://dribbble.com/jiepiranha" target="_blank">
+            <img src="assets/img/ic_dribbble.png" class="sosmed">
+        </a>
+        <a href="https://www.youtube.com/channel/UCqJohstmQQsp_fisPdZ2S6g" target="_blank">
+            <img src="assets/img/ic_youtube.png" class="sosmed">
+        </a>
+    </p>
+</footer>
 
 <script src="assets/js/script.js"></script>
 </body>

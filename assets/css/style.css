@@ -13,12 +13,48 @@ input, button {
 }
 
 .head_bar {
-    padding: 12px;
-    display: flex;
+    display: inline;
     align-items: center;
     justify-content: center;
-    background-color: cornflowerblue;
-    color: white;
+    background-color: rgb(255, 255, 255);
+    color: whitesmoke;
+}
+
+.banner {
+    font-weight: bold;
+    padding: 8% 4%;
+    background-image: url("../img/books-pict1.jpeg");
+    background-color: #000000;
+    background-size: cover;
+    opacity: 0.8;
+    text-align: center;
+    
+}
+
+.banner h1, h3 {
+    text-shadow: 2px 2px 4px black;
+}
+
+.banner a {
+    text-decoration: none;
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    background-color: #000000;
+    padding: 0;
+    position: sticky;
+    top: 0;
+    color: cornflowerblue;
+    align-items: center;
+    height: 40px;
+}
+
+nav .logo {
+    font-family: 'Lora', serif;
+    letter-spacing: 3px;
+    font-size: 1.3rem;
 }
 
 main {
@@ -67,8 +103,6 @@ main {
     padding: 8px;
     border-radius: 5px;
 }
-
-
 
 .input_section > form > .input > label {
     color: cornflowerblue;
@@ -227,12 +261,18 @@ main {
     outline: none;
 }
 
-.book_shelf > .book_list > .book_item > .action > .green {
-    background-color: darkgreen;
-    color: white;
+footer {
+    padding: 20px;
+    color: #6495ed;
+    background-color: #383838;
+    text-align: center;
+    font-weight: bold;
 }
 
-.book_shelf > .book_list > .book_item > .action > .red {
-    background-color: darkred;
-    color: white;
+footer a {
+    text-decoration: none;
+}
+
+footer .sosmed {
+    width: 30px;
 }
